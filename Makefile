@@ -6,5 +6,13 @@ goose-counter-build:
 		-f ./src/goose-counter/Dockerfile-goose-counter \
 	./src/goose-counter/
 
+frontend-build:
+	docker build \
+		-t docker-workshop/frontend:latest \
+		-f ./src/frontend/Dockerfile-frontend \
+	./src/frontend/
+
+build: goose-counter-build frontend-build
+
 run:
 	docker-compose up

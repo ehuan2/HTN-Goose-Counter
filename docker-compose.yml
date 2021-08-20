@@ -6,3 +6,9 @@ services:
     ports:
       - 8080:8080
     command: ["python", "main.py"]
+  frontend:
+    image: docker-workshop/frontend:latest
+    ports:
+      - 3000:3000
+    command: ["npm", "start"]
+    env_file: ./conf/.env-frontend
