@@ -1,0 +1,9 @@
+FROM alpine:3.14
+
+# download racket
+RUN apk update && apk add racket --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing
+
+# download dependencies
+RUN raco pkg install --auto web-server-lib
+
+COPY . .

@@ -12,7 +12,13 @@ frontend-build:
 		-f ./src/frontend/Dockerfile-frontend \
 	./src/frontend/
 
-build: goose-counter-build frontend-build
+nickname-generator-build:
+	docker build \
+		-t docker-workshop/nickname-generator:latest \
+		-f ./src/nickname-generator/Dockerfile-nickname-generator \
+	./src/nickname-generator/
+
+build: goose-counter-build frontend-build nickname-generator-build
 
 run:
 	docker-compose up
