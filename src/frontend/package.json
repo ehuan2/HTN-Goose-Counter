@@ -1,0 +1,14 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "This is the frontend microservice for the goose counter application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Eric Huang",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
