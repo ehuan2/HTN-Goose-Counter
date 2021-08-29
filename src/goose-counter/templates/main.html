@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goose Counter</title>
+</head>
+<body>
+
+    <span>
+        <form id="goose_form" method="POST">
+            <p>Goose Name:<input type="text" name="goose_name"></p>
+            <p>Goose Location:<input type="text" name="goose_loc"></p>
+        </form>
+
+        <button form="goose_form">Found a Goose!</button>
+        <!-- <button>New Goose</button> -->
+    </span>
+
+    <script>
+        // Get DOM elements
+        const body = document.querySelector("body");
+        const button = document.querySelector('button');
+        const counter = document.querySelector('p');
+        let gooseCounter = 0;
+
+        // new goose
+        button.onclick = (event) => {
+            fetch('http://localhost:8080/goose', {
+                method: 'POST',
+            })
+            .then(resp => resp.json())
+            .then(function(json) {
+                const newThing = document.createElement("p")
+                console.log(json)
+                newThing.innerText = json.name
+                body.appendChild(newThing)
+            })
+            .catch(error => console.error(error))
+        }
+    </script>
+    
+</body>
+
+</html>
