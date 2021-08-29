@@ -1,8 +1,11 @@
-const app = require('express')();
+const express = require('express');
+const path = require('path');
 
-app.get('/', (req, res ) => 
-    res.json({ message: 'Docker is easy 🐳' }) 
-);
+const app = express();
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/main.html'))
+});
 
 const port = process.env.PORT || 8080;
 
