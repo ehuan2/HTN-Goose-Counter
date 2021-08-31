@@ -21,3 +21,13 @@ services:
     ports:
       - 8081
     command: ["racket", "main.rkt"]
+
+  redis:
+    image: redis:latest
+    ports:
+      - 6379
+    volumes:
+      - redis-data:/redis-data
+
+volumes:
+  redis-data:
