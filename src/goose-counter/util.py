@@ -13,7 +13,7 @@ def getResponse(goose):
 # marshals the nickname and the location into json
 def marshalGoose(nickname, coordinates):
     return json.dumps({
-        "nickname": nickname,
+        "nickname": nickname["name"],
         "coordinates": {
             "x": coordinates[0],
             "y": coordinates[1]

@@ -8,32 +8,58 @@
 </head>
 <body>
 
-    <span>
-        <button>New Goose</button>
-        <p></p>
-    </span>
+    <button id="new-goose">New Goose</button>
+    <button id="get-geese">Find Geese</button>
+    <p id="goose"></p>
+    <p id="counter"></p>
+
+    <ul id="geese"></ul>
 
     <script>
         // Get DOM elements
         const body = document.querySelector("body");
-        const button = document.querySelector('button');
-        const counter = document.querySelector('p');
-        let gooseCounter = 0;
+        const newGoose = document.getElementById("new-goose");
+        const getGeese = document.getElementById("get-geese");
+
+        const goose = document.getElementById("goose");
+        const counter = document.getElementById("counter");
+        const geese = document.getElementById("geese");
+
+        function addGoose(goose) {
+            const li = document.createElement("li")
+            li.innerHTML = "Nickname: " + goose.nickname + " Coordinates: (" + goose.coordinates.x + ", " + goose.coordinates.y + ")"
+            geese.appendChild(li)
+        }
 
         // new goose
-        button.onclick = (event) => {
+        newGoose.onclick = (event) => {
             fetch('http://localhost:8080/goose', {
                 method: 'POST',
             })
             .then(resp => resp.json())
             .then(function(json) {
-                const newThing = document.createElement("p")
                 console.log(json)
-                newThing.innerText = json.name
-                body.appendChild(newThing)
+                goose.innerHTML = "New Goose:" + JSON.stringify(json)
+                geese.innerHTML = ""
+                counter.innerHTML = ""
             })
             .catch(error => console.error(error))
         }
+
+        getGeese.onclick = (event) => {
+            fetch('http://localhost:8080/goose', {
+                method: 'GET',
+            })
+            .then(resp => resp.json())
+            .then(function(json) {
+                console.log(json)
+                geese.innerHTML = "" // clears it first
+                json.geese.forEach(addGoose) // goes through each one to add it
+                counter.innerHTML = "Counter: " + json.counter // adds counter
+            })
+            .catch(error => console.error(error))
+        }
+
     </script>
     
 </body>
