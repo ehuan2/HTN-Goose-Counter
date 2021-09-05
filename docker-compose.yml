@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   goose-counter:
-    image: docker-workshop/goose-counter:latest
+    image: ehuan2/htngc-goose-counter:latest
     ports:
       - 8080:8080
     environment: 
@@ -10,14 +10,24 @@ services:
     command: ["python", "main.py"]
 
   frontend:
-    image: docker-workshop/frontend:latest
+    image: ehuan2/htngc-frontend:latest
     ports:
       - 3000:3000
     command: ["npm", "start"]
     env_file: ./conf/.env-frontend
 
   nickname-generator:
-    image: docker-workshop/nickname-generator:latest
+    image: ehuan2/htngc-nickname-generator:latest
     ports:
       - 8081
     command: ["racket", "main.rkt"]
+
+  redis:
+    image: redis:latest
+    ports:
+      - 6379
+    volumes:
+      - redis-data:/redis-data
+
+volumes:
+  redis-data:
