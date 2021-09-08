@@ -35,6 +35,8 @@ Step (8):
 Run the actual application by building each one according to the Makefile. Then run the following for docker-compose up:
 ```
 docker run --rm \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v "$PWD:$PWD" \
     -w="$PWD" \
     docker/compose:1.24.0 up
 ```
