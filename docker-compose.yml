@@ -1,5 +1,17 @@
 version: '3.7'
 
+# general way of making services:
+# <service-name>:
+  # image: <image-name>
+  # ports:
+    # - <ext-port>:<int-port>
+  # environment:
+    # <env-name>: <value-or-env-file-name>
+  # env_file: <path-to-env-file>
+  # command: [<comma-separated-values-of-starting-it-up>] 
+  # volumes:
+    # <ref-volume>:<container-volume>
+
 services:
   goose-counter:
     image: ehuan2/htngc-goose-counter:latest

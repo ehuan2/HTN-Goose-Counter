@@ -1,5 +1,9 @@
 
 # tag with the latest build, use the appropriate dockerfile and start in right place
+
+# ** general tagging guidelines **
+# <external-repo>/<image-name>:<version-number>
+
 goose-counter-build:
 	docker build \
 		-t ehuan2/htngc-goose-counter:latest \

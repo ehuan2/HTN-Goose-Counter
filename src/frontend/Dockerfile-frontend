@@ -1,8 +1,6 @@
+# Step 1: Base Image
 FROM node:12
 
-WORKDIR /app
+# Step 2: Install dependencies
 
-COPY package*.json ./
-RUN npm install
-
-COPY . .
+# Step 3: Copy project over

@@ -1,12 +1,6 @@
+# Step 1: Base Image
 FROM python:3.8-slim-buster
 
-# can be used to generate the requirements.txt file without downloading/setting up python!
-# RUN python -m pip install flask redis
-# RUN python -m pip freeze > requirements.txt
+# Step 2: Install dependencies
 
-# download requirements
-COPY requirements.txt .
-RUN python -m pip install -r requirements.txt
-
-# copy over necessary files
-COPY . .
+# Copy project over
