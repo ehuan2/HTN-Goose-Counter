@@ -12,7 +12,7 @@ services:
   frontend:
     image: ehuan2/htngc-frontend:latest
     ports:
-      - 3000:3000
+      - 80:80
     command: ["npm", "start"]
     env_file: ./conf/.env-frontend
 
