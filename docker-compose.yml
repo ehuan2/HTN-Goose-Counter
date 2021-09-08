@@ -14,12 +14,7 @@ version: '3.7'
 
 services:
   goose-counter:
-    image: ehuan2/htngc-goose-counter:latest
-    ports:
-      - 8080:8080
-    environment: 
-      PYTHONUNBUFFERED: 1
-    command: ["python", "main.py"]
+    # todo: fill in this
 
   frontend:
     image: ehuan2/htngc-frontend:latest
@@ -29,10 +24,7 @@ services:
     env_file: ./conf/.env-frontend
 
   nickname-generator:
-    image: ehuan2/htngc-nickname-generator:latest
-    ports:
-      - 8081
-    command: ["racket", "main.rkt"]
+    # todo: fill in this
 
   redis:
     image: redis:latest
