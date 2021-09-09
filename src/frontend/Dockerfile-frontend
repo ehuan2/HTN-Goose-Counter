@@ -1,0 +1,6 @@
+# Step 1: Base Image
+FROM node:12
+
+# Step 2: Install dependencies
+
+# Step 3: Copy project over

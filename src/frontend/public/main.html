@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goose Counter</title>
+</head>
+<body>
+
+    <button id="new-goose">New Goose</button>
+    <button id="get-geese">Find Geese</button>
+    <p id="goose"></p>
+    <p id="counter"></p>
+
+    <ul id="geese"></ul>
+
+    <script>
+        // Get DOM elements
+        const body = document.querySelector("body");
+        const newGoose = document.getElementById("new-goose");
+        const getGeese = document.getElementById("get-geese");
+
+        const goose = document.getElementById("goose");
+        const counter = document.getElementById("counter");
+        const geese = document.getElementById("geese");
+
+        function addGoose(goose) {
+            const li = document.createElement("li")
+            li.innerHTML = "Nickname: " + goose.nickname + " Coordinates: (" + goose.coordinates.x + ", " + goose.coordinates.y + ")"
+            geese.appendChild(li)
+        }
+
+        // new goose
+        newGoose.onclick = (event) => {
+            fetch('', {
+                method: 'POST',
+            })
+            .then(resp => resp.json())
+            .then(function(json) {
+                console.log(json)
+                goose.innerHTML = "New Goose:" + JSON.stringify(json)
+                geese.innerHTML = ""
+                counter.innerHTML = ""
+            })
+            .catch(error => console.error(error))
+        }
+
+        getGeese.onclick = (event) => {
+            fetch('', {
+                method: 'GET',
+            })
+            .then(resp => resp.json())
+            .then(function(json) {
+                console.log(json)
+                geese.innerHTML = "" // clears it first
+                json.geese.forEach(addGoose) // goes through each one to add it
+                counter.innerHTML = "Counter: " + json.counter // adds counter
+            })
+            .catch(error => console.error(error))
+        }
+
+    </script>
+    
+</body>
+
+</html>

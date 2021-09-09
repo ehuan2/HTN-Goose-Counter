@@ -1,0 +1,10 @@
+# Step 1: Base Image - there is no racket image, so we have to do it overselves
+FROM alpine:3.14
+# download racket
+RUN apk update && apk add racket --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing
+
+# Step 2: Download dependencies
+RUN raco pkg install --auto web-server-lib
+
+# Step 3: Copy over files
+COPY . .

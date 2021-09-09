@@ -1,0 +1,6 @@
+# Step 1: Base Image
+FROM python:3.8-slim-buster
+
+# Step 2: Install dependencies
+
+# Copy project over
