@@ -32,6 +32,8 @@
         }
 
         // new goose
+        // Call the flask backend container here 
+        // that is hosted on localhost and port 8080
         newGoose.onclick = (event) => {
             fetch('<docker-container>', {
                 method: '<method>',
@@ -46,6 +48,8 @@
             .catch(error => console.error(error))
         }
 
+        // Call the flask backend container here 
+        // that is hosted on localhost and port 8080 with "GET" or "POST" as appropriate
         getGeese.onclick = (event) => {
             fetch('<docker-container>', {
                 method: '<method>',

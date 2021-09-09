@@ -11,7 +11,7 @@ app = Flask(__name__)
 def getNickname():
     # first call the nickname generator to get a nickname
     conn = http.client.HTTPConnection("<container-name>", <port-number>)
-    conn.request("GET", "/")
+    #Call the nickname generator by sending a "GET" request
     res = conn.getresponse()
     if res.status == 200:
         return util.unmarshalNickname(res.read())
