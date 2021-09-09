@@ -33,8 +33,8 @@
 
         // new goose
         newGoose.onclick = (event) => {
-            fetch('', {
-                method: 'POST',
+            fetch('<docker-container>', {
+                method: '<method>',
             })
             .then(resp => resp.json())
             .then(function(json) {
@@ -47,8 +47,8 @@
         }
 
         getGeese.onclick = (event) => {
-            fetch('', {
-                method: 'GET',
+            fetch('<docker-container>', {
+                method: '<method>',
             })
             .then(resp => resp.json())
             .then(function(json) {

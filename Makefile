@@ -5,10 +5,7 @@
 # <external-repo>/<image-name>:<version-number>
 
 goose-counter-build:
-	docker build \
-		-t ehuan2/htngc-goose-counter:latest \
-		-f ./src/goose-counter/Dockerfile-goose-counter \
-	./src/goose-counter/
+	# todo: add this in
 
 frontend-build:
 	docker build \
@@ -17,15 +14,12 @@ frontend-build:
 	./src/frontend/
 
 nickname-generator-build:
-	docker build \
-		-t ehuan2/htngc-nickname-generator:latest \
-		-f ./src/nickname-generator/Dockerfile-nickname-generator \
-	./src/nickname-generator/
+	# todo: add this in
 
 build: goose-counter-build frontend-build nickname-generator-build
 
 run:
-	docker-compose up
+	# todo: add this in
 
 push:
 	docker push ehuan2/htngc-goose-counter:latest
