@@ -4,12 +4,12 @@ import util
 
 # when we save the stuff to redis, 
 def saveGoose(goose):
-    r = redis.Redis(host="redis", port=6379, db=0)
+    r = redis.Redis(host="<db-container-name>", port=<port-number>, db=0)
     r.rpush("geese", goose)
     r.close()
 
 def getGeese():
-    r = redis.Redis(host="redis", port=6379, db=0)
+    r = redis.Redis(host="<db-container-name>", port=<port-number>, db=0)
     geese = []
     for bytes in r.lrange("geese", 0, -1):
         # unmarshal geese to remarshal with the counter

@@ -33,7 +33,7 @@
 
         // new goose
         newGoose.onclick = (event) => {
-            fetch('http://localhost:8080/goose', {
+            fetch('', {
                 method: 'POST',
             })
             .then(resp => resp.json())
@@ -47,7 +47,7 @@
         }
 
         getGeese.onclick = (event) => {
-            fetch('http://localhost:8080/goose', {
+            fetch('', {
                 method: 'GET',
             })
             .then(resp => resp.json())
